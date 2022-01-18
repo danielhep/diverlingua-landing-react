@@ -1,8 +1,8 @@
 import Image from 'next/image'
-export default function Section ({ fullHeight, textSide = 'left', children, img, style, className }) {
+export default function Section ({ fullHeight, textSide = 'left', children, img, shadow, style, className }) {
   return (
     <div
-      className={`relative flex leading-normal px-8 justify-center font-header w-full ${fullHeight ? 'hFull' : 'h-96'} ${className}`}
+      className={`flex leading-normal px-8 justify-center font-header w-full ${fullHeight ? 'hFull' : 'h-96'} ${className} ${shadow ? 'shadow-md' : ''}`}
       style={style}
     >
       <div

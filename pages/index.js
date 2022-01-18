@@ -37,7 +37,7 @@ export default function Home () {
             with native teachers who<br />adapt to your needs.
           </p>
         </GenericSection>
-        <GenericSection img={imgblock2} className='bg-diverlingua-light-blue'>
+        <GenericSection img={imgblock2} className='bg-diverlingua-light-blue text-white' shadow>
           <h3 className='text-4xl mb-4 font-bold bg-diverlingua-light-blue'>
             We help you lose your<br />fear of speaking spanish.
           </h3>
@@ -53,7 +53,7 @@ export default function Home () {
             Learning Spanish online with an<br /> interactive and conversational <br />method is the fastest way to get<br /> from zero to conversational.
           </p>
         </GenericSection>
-        <GenericSection img={imgblock4} className='bg-diverlingua-light-blue'>
+        <GenericSection img={imgblock4} className='bg-diverlingua-light-blue text-white'>
           <h3 className='text-4xl mb-4 font-bold bg-diverlingua-light-blue'>
             You will learn more<br /> and pay less!
           </h3>
