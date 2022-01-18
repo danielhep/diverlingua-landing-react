@@ -26,7 +26,7 @@ export default function Home () {
                 <span className='ml-12'>from anywhere.</span>
               </h2>
             </GenericSection>
-            <Image src={edificios} alt='' layout='intrinsic' />
+            <Image src={edificios} alt='' layout='intrinsic' priority />
           </div>
         </div>
         <GenericSection img={imgblock1} textSide='right'>
@@ -53,7 +53,7 @@ export default function Home () {
             Learning Spanish online with an<br /> interactive and conversational <br />method is the fastest way to get<br /> from zero to conversational.
           </p>
         </GenericSection>
-        <GenericSection img={imgblock4} className='bg-diverlingua-light-blue text-white'>
+        <GenericSection img={imgblock4} className='bg-diverlingua-light-blue text-white' shadow>
           <h3 className='text-4xl mb-4 font-bold bg-diverlingua-light-blue'>
             You will learn more<br /> and pay less!
           </h3>
