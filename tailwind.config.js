@@ -13,10 +13,13 @@ module.exports = {
         'diverlingua-blue': '#0f7f9b'
       },
       fontFamily: {
-        header: ['Source Sans 3'],
-        small: ['Radex Pro']
+        header: ['Source Sans Pro'],
+        small: ['Radex Pro'],
+        display: ['Noto Sans']
       }
     }
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/forms')
+  ]
 }
