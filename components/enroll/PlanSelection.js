@@ -13,11 +13,11 @@ function classNames (...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function PlanSelection () {
+export default function PlanSelection ({ hidden }) {
   const [selectedMailingLists, setSelectedMailingLists] = useState(mailingLists[0])
 
   return (
-    <RadioGroup value={selectedMailingLists} onChange={setSelectedMailingLists}>
+    <RadioGroup value={selectedMailingLists} onChange={setSelectedMailingLists} className={hidden && 'hidden'}>
       <RadioGroup.Label className='text-base font-medium text-gray-900'>How much time can you commit to lessons per week?</RadioGroup.Label>
       <br />
       <small className='text-gray-800'>Every lesson is 1.5 hours, which we believe is the ideal length for a one-on-one language class.</small>

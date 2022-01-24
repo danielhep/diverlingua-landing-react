@@ -1,12 +1,18 @@
+import classNames from 'classnames'
+
 const languageLevels = [
-  { id: 'small', name: 'Beginner', description: 'I know nothing or close to nothing.' },
-  { id: 'medium', name: 'Intermediate', description: 'I have trouble listening or speaking, but know grammar and some vocab.' },
-  { id: 'large', name: 'Conversational', description: 'Can speak, and listen, but I need some more polish. ' }
+  { id: 'beginner', name: 'Beginner', description: 'I know nothing or close to nothing.' },
+  { id: 'intermediate', name: 'Intermediate', description: 'I have trouble listening or speaking, but know grammar and some vocab.' },
+  { id: 'conversational', name: 'Conversational', description: 'Can speak, and listen, but I need some more polish. ' }
 ]
 
-export default function PersonalDetails () {
+export default function PersonalDetails ({ hidden }) {
   return (
-    <div className='grid grid-cols-1 gap-y-6 w-full place-items-center divide-y divide-gray-300'>
+    <div className={classNames(
+      'grid grid-cols-1 gap-y-6 w-full place-items-center divide-y divide-gray-300',
+      { hidden }
+    )}
+    >
       <div className='w-2/3 grid grid-cols-1 gap-y-4'>
         <div className='text-black'>
           <label htmlFor='username' className='block text-sm font-medium text-gray-700'>
@@ -42,24 +48,24 @@ export default function PersonalDetails () {
       <fieldset className='pt-4'>
         <legend className='sr-only'>Plan</legend>
         <div className='space-y-5'>
-          {languageLevels.map((plan) => (
-            <div key={plan.id} className='relative flex items-start'>
+          {languageLevels.map((level) => (
+            <div key={level.id} className='relative flex items-start'>
               <div className='flex items-center h-5'>
                 <input
-                  id={plan.id}
-                  aria-describedby={`${plan.id}-description`}
-                  name='plan'
+                  id={level.id}
+                  aria-describedby={`${level.id}-description`}
+                  name='level'
                   type='radio'
-                  defaultChecked={plan.id === 'small'}
+                  defaultChecked={level.id === 'small'}
                   className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
                 />
               </div>
               <div className='ml-3 text-sm'>
-                <label htmlFor={plan.id} className='font-medium text-gray-700'>
-                  {plan.name}
+                <label htmlFor={level.id} className='font-medium text-gray-700'>
+                  {level.name}
                 </label>
-                <p id={`${plan.id}-description`} className='text-gray-500'>
-                  {plan.description}
+                <p id={`${level.id}-description`} className='text-gray-500'>
+                  {level.description}
                 </p>
               </div>
             </div>

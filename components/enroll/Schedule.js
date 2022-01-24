@@ -39,7 +39,7 @@ const daysOfWeek = [
   }
 ]
 
-export default function Schedule () {
+export default function Schedule ({ hidden }) {
   const [availability, setAvailability] = useState([])
 
   const toggleDay = (day) => {
@@ -50,7 +50,7 @@ export default function Schedule () {
     }
   }
   return (
-    <div className='text-black flex flex-col space-y-4'>
+    <div className={classNames('text-black flex flex-col space-y-4', { hidden })}>
       <div>
         <h2 className='text-sm font-medium text-gray-900'>What is your weekly availability?</h2>
         <a href='#' className='text-sm font-medium text-gray-600'>
@@ -60,17 +60,25 @@ export default function Schedule () {
       <div className='mt-3 grid grid-cols-4 gap-2 sm:grid-cols-7'>
         {
           daysOfWeek.map(day => (
-            <div
-              key={day.shortName}
-              onClick={() => toggleDay(day.shortName)}
-              className={classNames(
-                'border rounded-md py-3 px-1 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer',
-                availability.includes(day.shortName)
-                  ? 'bg-rose-600 border-transparent text-white hover:bg-rose-700'
-                  : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'
-              )}
-            >
-              <p>{day.shortName}</p>
+            <div key={day.shortName}>
+              <input
+                type='checkbox'
+                className='hidden'
+                checked={availability.includes(day.shortName)}
+                name={`available${day.name}`}
+                readOnly
+              />
+              <div
+                onClick={() => toggleDay(day.shortName)}
+                className={classNames(
+                  'border rounded-md py-3 px-1 flex items-center justify-center text-sm font-medium uppercase sm:flex-1 cursor-pointer',
+                  availability.includes(day.shortName)
+                    ? 'bg-rose-600 border-transparent text-white hover:bg-rose-700'
+                    : 'bg-white border-gray-200 text-gray-900 hover:bg-gray-50'
+                )}
+              >
+                <p>{day.shortName}</p>
+              </div>
             </div>
           ))
         }
@@ -83,8 +91,8 @@ export default function Schedule () {
         <div className='mt-1'>
           <textarea
             rows={4}
-            name='comment'
-            id='comment'
+            name='scheduleDetails'
+            id='scheduleDetails'
             className='shadow-sm focus:ring-rose-500 focus:border-rose-500 block w-full sm:text-sm border-gray-300 rounded-md'
             defaultValue=''
           />
