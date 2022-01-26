@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { bool, number, object, string } from 'prop-types'
+import { bool, object, string } from 'prop-types'
 import RandomStars from './RandomStars'
 function GenericSection ({ fullHeight, textSide = 'left', children, img, shadow, stars, style, className }) {
   return (
