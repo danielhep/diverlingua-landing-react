@@ -6,7 +6,8 @@ const languageLevels = [
   { id: 'conversational', name: 'Conversational', description: 'Can speak, and listen, but I need some more polish. ' }
 ]
 
-export default function PersonalDetails ({ hidden }) {
+export default function PersonalDetails ({ hidden, register, errors }) {
+  console.log(errors)
   return (
     <div className={classNames(
       'grid grid-cols-1 gap-y-6 w-full place-items-center divide-y divide-gray-300',
@@ -20,14 +21,19 @@ export default function PersonalDetails ({ hidden }) {
           </label>
           <div className='mt-1 flex rounded-md shadow-sm'>
             <input
-              type='text'
-              name='username'
-              id='username'
               autoComplete='username'
+              className='flex-1 focus:ring-rose-500 focus:border-rose-500 block min-w-0 rounded-md sm:text-sm border-gray-300'
+              id='fullname'
+              name='fullname'
               placeholder='Your name'
-              className='flex-1 focus:ring-indigo-500 focus:border-indigo-500 block min-w-0 rounded-md sm:text-sm border-gray-300'
+              type='text'
+              tabIndex='0'
+              {...register('fullname', { required: true })}
             />
           </div>
+          <p className='block text-sm font-medium text-red-700 mt-1'>
+            {errors?.fullname?.message}
+          </p>
         </div>
         <div className='text-black'>
           <label htmlFor='username' className='block text-sm font-medium text-gray-700'>
@@ -35,27 +41,41 @@ export default function PersonalDetails ({ hidden }) {
           </label>
           <div className='mt-1 flex rounded-md shadow-sm'>
             <input
-              type='text'
-              name='username'
-              id='username'
               autoComplete='email'
+              className='flex-1 focus:ring-rose-500 focus:border-rose-500 block min-w-0 rounded-md sm:text-sm border-gray-300'
+              id='email'
+              name='email'
               placeholder='Email'
-              className='flex-1 focus:ring-indigo-500 focus:border-indigo-500 block min-w-0 rounded-md sm:text-sm border-gray-300'
+              type='text'
+              tabIndex='1'
+              {...register('email', { required: true })}
             />
           </div>
+          <p className='block text-sm font-medium text-red-700 mt-1'>
+            {errors?.email?.message}
+          </p>
         </div>
       </div>
-      <fieldset className='pt-4'>
-        <legend className='sr-only'>Plan</legend>
+      <fieldset className='pt-4' id='level'>
+        <label htmlFor='currentLevel' className='block text-sm font-medium text-gray-700 mb-3'>
+          What level are you at in Spanish today?
+        </label>
+        <legend className='sr-only'>Current level</legend>
+        <p className='block text-sm font-medium text-red-700 mb-2'>
+          {errors?.currentLevel?.message}
+        </p>
         <div className='space-y-5'>
-          {languageLevels.map((level) => (
+          {languageLevels.map((level, levelIdx) => (
             <div key={level.id} className='relative flex items-start'>
               <div className='flex items-center h-5'>
                 <input
                   id={level.id}
+                  value={level.id}
                   aria-describedby={`${level.id}-description`}
-                  name='level'
+                  name='currentLevel'
                   type='radio'
+                  tabIndex={levelIdx + 2}
+                  {...register('currentLevel')}
                   defaultChecked={level.id === 'small'}
                   className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
                 />

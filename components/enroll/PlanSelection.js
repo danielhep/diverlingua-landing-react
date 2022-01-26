@@ -2,34 +2,36 @@
 import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/solid'
+import classNames from 'classnames'
 
-const mailingLists = [
-  { id: 1, title: 'Relaxed', description: 'One lesson per week.', users: '$40 monthly' },
-  { id: 2, title: 'Balanced', description: <span>Two lessons per week.<br /> Most popular!</span>, users: '$55 per month' },
-  { id: 3, title: 'Rocketship', description: 'Four lessons per week.', users: '$100 per month' }
-]
-
-function classNames (...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
-export default function PlanSelection ({ hidden }) {
-  const [selectedMailingLists, setSelectedMailingLists] = useState(mailingLists[0])
+export default function PlanSelection ({ hidden, register, setValue, plans }) {
+  const [selectedPlan, setSelectedPlanState] = useState(plans[1])
+  const setSelectedPlan = (p) => {
+    setSelectedPlanState(p)
+    setValue('selectedPlan', p.title, { shouldValidate: true, shouldDirty: true })
+  }
 
   return (
-    <RadioGroup value={selectedMailingLists} onChange={setSelectedMailingLists} className={hidden && 'hidden'}>
+    <RadioGroup value={selectedPlan} onChange={setSelectedPlan} className={classNames({ hidden })}>
       <RadioGroup.Label className='text-base font-medium text-gray-900'>How much time can you commit to lessons per week?</RadioGroup.Label>
       <br />
+      <input
+        type='text'
+        className='hidden'
+        name='plan'
+        id='plan'
+        defaultValue={selectedPlan.title}
+        {...register('selectedPlan')}
+      />
       <small className='text-gray-800'>Every lesson is 1.5 hours, which we believe is the ideal length for a one-on-one language class.</small>
       <div className='mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4'>
-        {mailingLists.map((mailingList) => (
+        {plans.map((plan, planIdx) => (
           <RadioGroup.Option
-            key={mailingList.id}
-            value={mailingList}
+            key={plan.id}
+            value={plan}
             className={({ checked, active }) =>
               classNames(
-                checked ? 'border-transparent' : 'border-gray-300',
-                active ? 'ring-2 ring-rose-600' : '',
+                { 'ring-2 ring-rose-600': active, 'border-transparent': checked, 'border-gray-300': !checked },
                 'relative bg-white border rounded-lg shadow-sm p-4 flex cursor-pointer focus:outline-none'
               )}
           >
@@ -38,18 +40,18 @@ export default function PlanSelection ({ hidden }) {
                 <div className='flex-1 flex'>
                   <div className='flex flex-col'>
                     <RadioGroup.Label as='span' className='block text-sm font-medium text-gray-900'>
-                      {mailingList.title}
+                      {plan.title}
                     </RadioGroup.Label>
                     <RadioGroup.Description as='span' className='mt-1 flex items-center text-sm text-gray-500'>
-                      {mailingList.description}
+                      {plan.description}
                     </RadioGroup.Description>
                     <RadioGroup.Description as='span' className='mt-6 text-sm font-medium text-gray-900'>
-                      {mailingList.users}
+                      {plan.price}
                     </RadioGroup.Description>
                   </div>
                 </div>
                 <CheckCircleIcon
-                  className={classNames(!checked ? 'invisible' : '', 'h-5 w-5 text-rose-600')}
+                  className={classNames({ invisible: !checked }, 'h-5 w-5 text-rose-600')}
                   aria-hidden='true'
                 />
                 <div

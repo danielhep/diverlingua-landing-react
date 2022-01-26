@@ -39,35 +39,40 @@ const daysOfWeek = [
   }
 ]
 
-export default function Schedule ({ hidden }) {
+export default function Schedule ({ hidden, register, errors, numDays, setValue }) {
   const [availability, setAvailability] = useState([])
 
   const toggleDay = (day) => {
+    let newAvailability
     if (availability.includes(day)) {
-      setAvailability(availability.filter(d => d !== day))
+      newAvailability = availability.filter(d => d !== day)
     } else {
-      setAvailability([...availability, day])
+      newAvailability = [...availability, day]
     }
+    setAvailability(newAvailability)
+    setValue('availability', newAvailability.join(', '), { shouldValidate: true, shouldDirty: true })
   }
   return (
     <div className={classNames('text-black flex flex-col space-y-4', { hidden })}>
       <div>
         <h2 className='text-sm font-medium text-gray-900'>What is your weekly availability?</h2>
         <a href='#' className='text-sm font-medium text-gray-600'>
-          Please select all times that work for you, so we can a good time for weekly classes.
+          Please select all times that work for you, so we can a good time for weekly classes. <br />
+          {numDays && `Please select at least ${numDays} ${numDays > 1 ? 'days' : 'day'}.`}
         </a>
       </div>
+      <input
+        type='text'
+        className='hidden'
+        name='availabiliy'
+        value={availability.join(', ')}
+        {...register('availability')}
+        readOnly
+      />
       <div className='mt-3 grid grid-cols-4 gap-2 sm:grid-cols-7'>
         {
           daysOfWeek.map(day => (
             <div key={day.shortName}>
-              <input
-                type='checkbox'
-                className='hidden'
-                checked={availability.includes(day.shortName)}
-                name={`available${day.name}`}
-                readOnly
-              />
               <div
                 onClick={() => toggleDay(day.shortName)}
                 className={classNames(
@@ -83,6 +88,9 @@ export default function Schedule ({ hidden }) {
           ))
         }
       </div>
+      <p className='block text-sm font-medium text-red-700 mt-1'>
+        {errors?.availability?.message}
+      </p>
       <div className='max-w-full'>
         <label htmlFor='comment' className='block text-sm font-medium text-gray-700'>
           Add any details about your availability, such as times and preferences.<br />
@@ -95,8 +103,12 @@ export default function Schedule ({ hidden }) {
             id='scheduleDetails'
             className='shadow-sm focus:ring-rose-500 focus:border-rose-500 block w-full sm:text-sm border-gray-300 rounded-md'
             defaultValue=''
+            {...register('scheduleDetails')}
           />
         </div>
+        <p className='block text-sm font-medium text-red-700 mt-1'>
+          {errors?.scheduleDetails?.message}
+        </p>
       </div>
     </div>
   )
