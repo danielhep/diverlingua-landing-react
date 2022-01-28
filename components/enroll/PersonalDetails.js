@@ -27,7 +27,7 @@ export default function PersonalDetails ({ hidden, register, errors }) {
               name='fullname'
               placeholder='Your name'
               type='text'
-              tabIndex='0'
+              tabIndex='1'
               {...register('fullname', { required: true })}
             />
           </div>
@@ -47,7 +47,7 @@ export default function PersonalDetails ({ hidden, register, errors }) {
               name='email'
               placeholder='Email'
               type='text'
-              tabIndex='1'
+              tabIndex='2'
               {...register('email', { required: true })}
             />
           </div>
@@ -74,7 +74,7 @@ export default function PersonalDetails ({ hidden, register, errors }) {
                   aria-describedby={`${level.id}-description`}
                   name='currentLevel'
                   type='radio'
-                  tabIndex={levelIdx + 2}
+                  tabIndex={levelIdx + 3}
                   {...register('currentLevel')}
                   defaultChecked={level.id === 'small'}
                   className='focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300'
