@@ -22,7 +22,7 @@ export default function Enroll () {
           <div className='flex-grow'>
             <Form />
           </div>
-          <Image src={edificios} alt='' layout='intrinsic' priority />
+          {/* <Image src={edificios} alt='' layout='intrinsic' priority /> */}
         </div>
       </div>
     </div>
