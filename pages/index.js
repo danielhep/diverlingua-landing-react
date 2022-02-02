@@ -2,6 +2,9 @@ import Head from 'next/head'
 import GenericSection from '../components/GenericSection'
 import Image from 'next/image'
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { UseTranslation } from 'next-i18next'
+
 import edificios from '../public/images/edificios2.svg'
 import imgblock1 from '../public/images/imgblock1.svg'
 import imgblock2 from '../public/images/imgblock2.svg'
@@ -12,7 +15,17 @@ import RandomStars from '../components/RandomStars'
 import Navbar from '../components/Nav'
 // import styles from '../styles/Home.module.css'
 
+export async function getStaticProps ({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common', 'footer']))
+      // Will be passed to the page component as props
+    }
+  }
+}
+
 export default function Home () {
+  const { t } = useTranslation()
   return (
     <div>
       <Head>
