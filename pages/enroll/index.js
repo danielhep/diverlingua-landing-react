@@ -1,8 +1,6 @@
-import Image from 'next/image'
 import Form from '../../components/enroll/Form'
 import Navbar from '../../components/Nav'
 import RandomStars from '../../components/RandomStars'
-import edificios from '../../public/images/edificios2.svg'
 
 export default function Enroll () {
   return (
