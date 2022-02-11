@@ -3,6 +3,7 @@ import { Fragment, useState } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import classNames from 'classnames'
+import { useRouter } from 'next/router'
 
 import uk from '../public/images/united-kingdom.png'
 import es from '../public/images/spain.png'
@@ -14,7 +15,13 @@ const languages = [
 ]
 
 export default function LanguageSelector () {
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0])
+  const router = useRouter()
+  const { locale, pathname, asPath, query } = router
+  const [selectedLanguage, setSelectedLanguage] = useState(languages.find(l => l.code === locale))
+  const setNewLanguage = language => {
+    setSelectedLanguage(language)
+    router.push({ pathname, query }, asPath, { locale: language.code })
+  }
   return (
     <Menu as='div' className='relative inline-block text-left'>
       <div>
@@ -40,7 +47,7 @@ export default function LanguageSelector () {
           <div className='divide-y divide-gray-200'>
             {
               languages.map(language => (
-                <Menu.Item key={language.code} onClick={() => setSelectedLanguage(language)}>
+                <Menu.Item key={language.code} onClick={() => setNewLanguage(language)}>
                   {({ active }) => (
                     <a
                       href='#'
