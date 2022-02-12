@@ -46,7 +46,7 @@ export default function RandomStars () {
   const svgContainer = useRef(null)
   useEffect(() => {
     renderStars(true, svgContainer)()
-    const rellax = Rellax('.rellax')
+    Rellax('.rellax')
   })
   return (
     <div id='svgContainer' ref={svgContainer} className='absolute w-full h-full inset-0'>
