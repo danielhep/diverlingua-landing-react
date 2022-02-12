@@ -35,15 +35,15 @@ export default function Home () {
       <main>
         <div className='bg-blue-900 w-full relative'>
           <div className='relative w-full flex flex-col justify-center items-center max-w-screen-xl m-auto'>
-            <GenericSection textSide='right' style={{ marginBottom: '-300px' }}>
-              <h2 className='text-6xl text-white font-bold leading-normal mr-24'>
+            <GenericSection textSide='right' style={{ marginBottom: '-1px' }}>
+              <h2 className='md:text-6xl text-5xl text-white font-bold md:leading-normal md:mr-24 mb-24'>
                 <Trans ns='home' i18nKey='header'>
                   Learn <span className='text-rose-600'>Spanish</span><br />
-                  <span className='ml-12'>from anywhere.</span>
+                  <span className='md:ml-12'>from anywhere.</span>
                 </Trans>
               </h2>
+              <Image src={edificios} alt='' layout='fill' objectFit='cover' objectPosition='center bottom' priority />
             </GenericSection>
-            <Image src={edificios} alt='' layout='intrinsic' priority />
           </div>
           <RandomStars />
         </div>
