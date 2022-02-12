@@ -38,7 +38,7 @@ export default function Home () {
             <GenericSection textSide='right' style={{ marginBottom: '-300px' }}>
               <h2 className='text-6xl text-white font-bold leading-normal mr-24'>
                 <Trans ns='home' i18nKey='header'>
-                  <span>Learn Spanish<br /></span>
+                  Learn <span className='text-rose-600'>Spanish</span><br />
                   <span className='ml-12'>from anywhere.</span>
                 </Trans>
               </h2>
