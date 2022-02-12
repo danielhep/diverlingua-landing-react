@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
 
 import diverlinguaLogo from '../public/images/logo.svg'
 import Link from 'next/link'
@@ -22,6 +23,7 @@ function classNames (...classes) {
 
 export default function Navbar () {
   const currentPath = useRouter().pathname
+  const { t } = useTranslation('common')
   return (
     <Disclosure as='nav' className='bg-blue-900'>
       {({ open }) => (
@@ -80,7 +82,7 @@ export default function Navbar () {
                       type='button'
                       className='relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-rose-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500'
                     >
-                      <span>Enroll</span>
+                      <span>{t('enroll')}</span>
                     </button>
                   </Link>
                 </div>

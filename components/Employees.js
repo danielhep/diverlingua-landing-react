@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next'
 
 export default function Employees () {
   const { t } = useTranslation(['home', 'common'])
-  let people = [
+  const people = [
     {
       name: 'Miguel Frontado',
       role: `${t('english', { ns: 'common' })} / ${t('spanish', { ns: 'common' })}`,
@@ -19,7 +19,6 @@ export default function Employees () {
       bio: t('anaBio')
     }
   ]
-  people = [...people, ...people]
 
   const employeesListItems = people.map(person => (
     <li key={person.name}>
