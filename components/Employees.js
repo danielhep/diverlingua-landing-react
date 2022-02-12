@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next'
 
 export default function Employees () {
   const { t } = useTranslation(['home', 'common'])
-  const people = [
+  let people = [
     {
       name: 'Miguel Frontado',
       role: `${t('english', { ns: 'common' })} / ${t('spanish', { ns: 'common' })}`,
@@ -19,11 +19,12 @@ export default function Employees () {
       bio: t('anaBio')
     }
   ]
+  people = [...people, ...people]
 
   const employeesListItems = people.map(person => (
     <li key={person.name}>
       <div className='space-y-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:space-y-0 lg:gap-8'>
-        <div className='h-0 aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4'>
+        <div className='aspect-square'>
           <div className='img-wrapper'>
             <Image src={person.photo} alt={t('photo-of-person-name', { personName: person.name })} placeholder='blur' />
           </div>
