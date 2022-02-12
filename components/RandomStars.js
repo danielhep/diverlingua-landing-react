@@ -1,5 +1,6 @@
 import { useRef, useEffect } from 'react'
 import * as d3 from 'd3'
+import Rellax from 'rellax'
 
 const renderStars = (delayedRender, svgContainer) => () => {
   const container = d3.select(svgContainer.current)
@@ -21,7 +22,8 @@ const renderStars = (delayedRender, svgContainer) => () => {
       y: generateY(),
       delay: delayedRender ? Math.floor(Math.random() * 4000) : 0,
       size: (Math.random() * 4) + 1,
-      upSpeed: (Math.random() / 2) + 0.5
+      upSpeed: (Math.random() / 2) + 0.5,
+      parallaxSpeed: Math.floor(Math.random() * 3)
     }
   })
 
@@ -33,6 +35,8 @@ const renderStars = (delayedRender, svgContainer) => () => {
     .attr('r', d => d.size)
     .attr('fill', 'white')
     .attr('fill-opacity', '0')
+    .attr('class', 'rellax')
+    .attr('data-rellax-speed', d => d.parallaxSpeed)
     .transition()
     .delay(d => d.delay)
     .attr('fill-opacity', '1')
@@ -42,6 +46,7 @@ export default function RandomStars () {
   const svgContainer = useRef(null)
   useEffect(() => {
     renderStars(true, svgContainer)()
+    const rellax = Rellax('.rellax')
   })
   return (
     <div id='svgContainer' ref={svgContainer} className='absolute w-full h-full inset-0'>

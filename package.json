@@ -24,6 +24,7 @@
     "react-hook-form": "^7.25.0",
     "react-i18next": "^11.15.3",
     "react-spinners": "^0.11.0",
+    "rellax": "^1.12.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {
