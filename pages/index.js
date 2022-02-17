@@ -13,6 +13,7 @@ import imgblock4 from '../public/images/imgblock4.svg'
 import Employees from '../components/Employees'
 import RandomStars from '../components/RandomStars'
 import Navbar from '../components/Nav'
+import Footer from '../components/Footer'
 // import styles from '../styles/Home.module.css'
 
 export async function getStaticProps ({ locale }) {
@@ -89,7 +90,7 @@ export default function Home () {
         </GenericSection>
         <Employees />
       </main>
-      <footer />
+      <Footer />
     </div>
   )
 }
