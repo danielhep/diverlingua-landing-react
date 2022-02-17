@@ -1,0 +1,80 @@
+{
+  "enroll-h2": "Ready to learn a language?",
+  "enroll-h4": "We process each enrollment by hand to ensure the best, most personal expierience.<br />\nYou can expect an email from us within 24 hours to set up your lessons.",
+  "plan1": {
+    "title": "Relaxed",
+    "desc": "One lesson per week.",
+    "price": "$40 monthly"
+  },
+  "plan2": {
+    "title": "Balanced",
+    "desc": "Two lessons per week.",
+    "desc2": "Most popular!",
+    "price": "$55 per month"
+  },
+  "plan3": {
+    "title": "Rocketship",
+    "desc": "Four lessons per week.",
+    "price": "$100 per month"
+  },
+  "next": "Next",
+  "submit": "Submit",
+  "planSelection": {
+    "timePerWeek": "How much time can you commit to lessons per week?",
+    "lengthDesc": "Every lesson is 1.5 hours, which we believe is the ideal length for a one-on-one language class."
+  },
+  "personalDetails": {
+    "nameLabel": "What can we call you?",
+    "namePlaceholder": "Your name",
+    "emailLabel": "What's your email?",
+    "emailPlaceholder": "Email",
+    "currentLevelLabel": "What level are you at in Spanish today?",
+    "currentLevelLegend": "Current level",
+    "level1": {
+      "name": "Beginner",
+      "desc": "I know nothing or close to nothing."
+    },
+    "level2": {
+      "name": "Intermediate",
+      "desc": "I have trouble listening or speaking, but know grammar and some vocab."
+    },
+    "level3": {
+      "name": "Conversational",
+      "desc": "Can speak, and listen, but I need some more polish."
+    }
+  },
+  "schedule": {
+    "monday": "Monday",
+    "mondayShort": "Mon",
+    "tuesday": "Tuesday",
+    "tuesdayShort": "Tue",
+    "wednesday": "Wednesday",
+    "wednesdayShort": "Wed",
+    "thursday": "Thursday",
+    "thursdayShort": "Thu",
+    "friday": "Friday",
+    "fridayShort": "Fri",
+    "saturday": "Saturday",
+    "saturdayShort": "Sat",
+    "sunday": "Sunday",
+    "sundayShort": "Sun",
+    "weeklyAvailabilityLabel": "What is your weekly availability?",
+    "weeklyavailabilityDesc": "Please select all times that work for you, so we can a good time for weekly classes.",
+    "selectAtLeastDays_one": "Please select at least <1>one</1> day.",
+    "selectAtLeastDays_other": "Please select at least {{count}} days.",
+    "availabilityDetails": "Add any details about your availability, such as times and preferences. Please try to be as detailed as possible, so we can set up your lessons quickly."
+  },
+  "error": {
+    "nameRequired": "Fullname is required.",
+    "emailValid": "Email entered is invalid.",
+    "emailRequired": "An email address is required.",
+    "planRequired": "Plan selection is required.",
+    "levelRequired": "Current language level is required.",
+    "availabilityRequired": "Please select at least one day per class.",
+    "scheduleDetailsRequired": "Please enter some availability details to help us plan your schedule."
+  },
+  "submitted": {
+    "h1": "Thank you for your submission!",
+    "p": "We will reach out to you soon to set up payment and classes,<br /> as well as introduce you to your techer."
+  }
+}

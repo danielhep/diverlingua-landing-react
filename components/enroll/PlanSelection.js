@@ -1,34 +1,30 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 import classNames from 'classnames'
+import { useTranslation } from 'next-i18next'
 
-export default function PlanSelection ({ hidden, register, setValue, plans }) {
-  const [selectedPlan, setSelectedPlanState] = useState(plans[1])
-  const setSelectedPlan = (p) => {
-    setSelectedPlanState(p)
-    setValue('selectedPlan', p.title, { shouldValidate: true, shouldDirty: true })
-  }
+export default function PlanSelection ({ hidden, register, setSelectedPlan, selectedPlan, plans }) {
+  const { t } = useTranslation(['enroll', 'common'])
 
   return (
     <RadioGroup value={selectedPlan} onChange={setSelectedPlan} className={classNames({ hidden })}>
-      <RadioGroup.Label className='text-base font-medium text-gray-900'>How much time can you commit to lessons per week?</RadioGroup.Label>
+      <RadioGroup.Label className='text-base font-medium text-gray-900'>{t('planSelection.timePerWeek')}</RadioGroup.Label>
       <br />
       <input
         type='text'
         className='hidden'
         name='plan'
         id='plan'
-        defaultValue={selectedPlan.title}
+        defaultValue={selectedPlan}
         {...register('selectedPlan')}
       />
-      <small className='text-gray-800'>Every lesson is 1.5 hours, which we believe is the ideal length for a one-on-one language class.</small>
+      <small className='text-gray-800'>{t('planSelection.lengthDesc')}</small>
       <div className='mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4'>
-        {plans.map((plan, planIdx) => (
+        {plans.map((plan) => (
           <RadioGroup.Option
             key={plan.id}
-            value={plan}
+            value={plan.id}
             className={({ checked, active }) =>
               classNames(
                 { 'ring-2 ring-rose-600': active, 'border-transparent': checked, 'border-gray-300': !checked },

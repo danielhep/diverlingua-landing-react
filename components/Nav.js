@@ -5,7 +5,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import Image from 'next/image'
 import { useTranslation } from 'next-i18next'
 
-import diverlinguaLogo from '../public/images/logo.svg'
+import diverlinguaLogo from '../public/images/diverlingua-landscape.svg'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import LanguageSelector from './LanguageSelector'
@@ -30,7 +30,7 @@ export default function Navbar () {
         <>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='flex justify-between h-16'>
-              <div className='flex'>
+              <div className='flex items-center'>
                 <div className='-ml-2 mr-2 flex items-center md:hidden'>
                   {/* Mobile menu button */}
                   <Disclosure.Button className='inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'>
@@ -44,16 +44,8 @@ export default function Navbar () {
                         )}
                   </Disclosure.Button>
                 </div>
-                <div className='flex-shrink-0 flex items-center h-8 w-32'>
-                  <div className='w-full h-full relative' id='logo-wrapper'>
-                    <Image src={diverlinguaLogo} layout='responsive' width='100%' height='100%' objectFit='contain' alt='Diverlingua' />
-                  </div>
-                  <style global jsx>{`
-                    #logo-wrapper span {
-                        height: 2rem !important; // the <Image> tag is dumb
-                    }
-                `}
-                  </style>
+                <div className='flex-shrink-0 flex items-center h-10 w-40 relative'>
+                  <Image src={diverlinguaLogo} layout='fill' objectFit='contain' alt='Diverlingua' />
                 </div>
                 <div className='hidden md:ml-6 md:flex md:items-center md:space-x-4'>
                   {navigation.map((item) => (

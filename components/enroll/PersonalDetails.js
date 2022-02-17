@@ -1,13 +1,13 @@
 import classNames from 'classnames'
-
-const languageLevels = [
-  { id: 'beginner', name: 'Beginner', description: 'I know nothing or close to nothing.' },
-  { id: 'intermediate', name: 'Intermediate', description: 'I have trouble listening or speaking, but know grammar and some vocab.' },
-  { id: 'conversational', name: 'Conversational', description: 'Can speak, and listen, but I need some more polish. ' }
-]
+import { useTranslation } from 'next-i18next'
 
 export default function PersonalDetails ({ hidden, register, errors }) {
-  console.log(errors)
+  const { t } = useTranslation(['enroll', 'common'])
+  const languageLevels = [
+    { id: 'beginner', name: t('personalDetails.level1.name'), description: t('personalDetails.level1.desc') },
+    { id: 'intermediate', name: t('personalDetails.level2.name'), description: t('personalDetails.level2.desc') },
+    { id: 'conversational', name: t('personalDetails.level3.name'), description: t('personalDetails.level3.desc') }
+  ]
   return (
     <div className={classNames(
       'grid grid-cols-1 gap-y-6 w-full place-items-center divide-y divide-gray-300',
@@ -17,7 +17,7 @@ export default function PersonalDetails ({ hidden, register, errors }) {
       <div className='w-2/3 grid grid-cols-1 gap-y-4'>
         <div className='text-black'>
           <label htmlFor='username' className='block text-sm font-medium text-gray-700'>
-            What can we call you?
+            {t('personalDetails.nameLabel')}
           </label>
           <div className='mt-1 flex rounded-md shadow-sm'>
             <input
@@ -25,7 +25,7 @@ export default function PersonalDetails ({ hidden, register, errors }) {
               className='flex-1 focus:ring-rose-500 focus:border-rose-500 block min-w-0 rounded-md sm:text-sm border-gray-300'
               id='fullname'
               name='fullname'
-              placeholder='Your name'
+              placeholder={t('personalDetails.namePlaceholder')}
               type='text'
               tabIndex='1'
               {...register('fullname', { required: true })}
@@ -37,7 +37,7 @@ export default function PersonalDetails ({ hidden, register, errors }) {
         </div>
         <div className='text-black'>
           <label htmlFor='username' className='block text-sm font-medium text-gray-700'>
-            What's your email?
+            {t('personalDetails.emailLabel')}
           </label>
           <div className='mt-1 flex rounded-md shadow-sm'>
             <input
@@ -45,7 +45,7 @@ export default function PersonalDetails ({ hidden, register, errors }) {
               className='flex-1 focus:ring-rose-500 focus:border-rose-500 block min-w-0 rounded-md sm:text-sm border-gray-300'
               id='email'
               name='email'
-              placeholder='Email'
+              placeholder={t('personalDetails.emailPlaceholder')}
               type='text'
               tabIndex='2'
               {...register('email', { required: true })}
@@ -58,9 +58,9 @@ export default function PersonalDetails ({ hidden, register, errors }) {
       </div>
       <fieldset className='pt-4' id='level'>
         <label htmlFor='currentLevel' className='block text-sm font-medium text-gray-700 mb-3'>
-          What level are you at in Spanish today?
+          {t('personalDetails.currentLevelLabel')}
         </label>
-        <legend className='sr-only'>Current level</legend>
+        <legend className='sr-only'>{t('personalDetails.currentLevelLegend')}</legend>
         <p className='block text-sm font-medium text-red-700 mb-2'>
           {errors?.currentLevel?.message}
         </p>

@@ -1,45 +1,47 @@
 import classNames from 'classnames'
 import { useState } from 'react'
-
-const daysOfWeek = [
-  {
-    name: 'Monday',
-    shortName: 'Mon',
-    selected: false
-  },
-  {
-    name: 'Tueday',
-    shortName: 'Tue',
-    selected: false
-  },
-  {
-    name: 'Wednesday',
-    shortName: 'Wed',
-    selected: false
-  },
-  {
-    name: 'Thursday',
-    shortName: 'Thu',
-    selected: false
-  },
-  {
-    name: 'Friday',
-    shortName: 'Fri',
-    selected: false
-  },
-  {
-    name: 'Saturday',
-    shortName: 'Sat',
-    selected: false
-  },
-  {
-    name: 'Sunday',
-    shortName: 'Sun',
-    selected: false
-  }
-]
+import { useTranslation, Trans } from 'next-i18next'
 
 export default function Schedule ({ hidden, register, errors, numDays, setValue }) {
+  const { t } = useTranslation(['enroll', 'common'])
+  const daysOfWeek = [
+    {
+      name: t('schedule.monday'),
+      shortName: t('schedule.mondayShort'),
+      selected: false
+    },
+    {
+      name: t('schedule.tuesday'),
+      shortName: t('schedule.tuesdayShort'),
+      selected: false
+    },
+    {
+      name: t('schedule.wednesday'),
+      shortName: t('schedule.wednesdayShort'),
+      selected: false
+    },
+    {
+      name: t('schedule.thursday'),
+      shortName: t('schedule.thursdayShort'),
+      selected: false
+    },
+    {
+      name: t('schedule.friday'),
+      shortName: t('schedule.fridayShort'),
+      selected: false
+    },
+    {
+      name: t('schedule.saturday'),
+      shortName: t('schedule.saturdayShort'),
+      selected: false
+    },
+    {
+      name: t('schedule.sunday'),
+      shortName: t('schedule.sundayShort'),
+      selected: false
+    }
+  ]
+
   const [availability, setAvailability] = useState([])
 
   const toggleDay = (day) => {
@@ -55,10 +57,10 @@ export default function Schedule ({ hidden, register, errors, numDays, setValue 
   return (
     <div className={classNames('text-black flex flex-col space-y-4', { hidden })}>
       <div>
-        <h2 className='text-sm font-medium text-gray-900'>What is your weekly availability?</h2>
+        <h2 className='text-sm font-medium text-gray-900'>{t('schedule.weeklyAvailabilityLabel')}</h2>
         <a href='#' className='text-sm font-medium text-gray-600'>
-          Please select all times that work for you, so we can a good time for weekly classes. <br />
-          {numDays && `Please select at least ${numDays} ${numDays > 1 ? 'days' : 'day'}.`}
+          {t('schedule.weeklyavailabilityDesc')} <br />
+          {numDays && <Trans i18nKey='schedule.selectAtLeastDays' ns='enroll' count={numDays}>Please select at least {{ count: numDays }} daysss.</Trans>}
         </a>
       </div>
       <input
@@ -93,8 +95,7 @@ export default function Schedule ({ hidden, register, errors, numDays, setValue 
       </p>
       <div className='max-w-full'>
         <label htmlFor='comment' className='block text-sm font-medium text-gray-700'>
-          Add any details about your availability, such as times and preferences.<br />
-          Please try to be as detailed as possible, so we can set up your lessons quickly.
+          {t('schedule.availabilityDetails')}<br />
         </label>
         <div className='mt-1'>
           <textarea
