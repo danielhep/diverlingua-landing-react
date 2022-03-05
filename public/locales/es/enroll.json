@@ -1,0 +1,80 @@
+{
+  "enroll-h2": "Listo para aprender un idioma?",
+  "enroll-h4": "Nuestro equipo revisa cada inscripción para asegurar la mejor experiencia de aprendizaje.<br />\n Nos contactaremos contigo por email en unas 24 horas o menos para que empieces tus clases.",
+  "plan1": {
+    "title": "Relajado",
+    "desc": "Una lección por semana.",
+    "price": "$40 mensuales"
+  },
+  "plan2": {
+    "title": "Intensivo",
+    "desc": "Dos lecciones por semana.",
+    "desc2": "Lo mas popular!",
+    "price": "$55 mensuales"
+  },
+  "plan3": {
+    "title": "Super Intensivo",
+    "desc": "Cuatro lecciones por semana.",
+    "price": "$100 mensuales"
+  },
+  "next": "Siguiente",
+  "submit": "Enviar",
+  "planSelection": {
+    "timePerWeek": "Cuantas horas de clase puedes tener durante la semana?",
+    "lengthDesc": " Cada lección es de hora y media, porque creemos que es la duracion ideal para una clase de idiomas."
+  },
+  "personalDetails": {
+    "nameLabel": "Como te llamamos?",
+    "namePlaceholder": "Cual es tu nombre?",
+    "emailLabel": "Cual es tu Email?",
+    "emailPlaceholder": "Email",
+    "currentLevelLabel": "Que nivel de Ingles tienes ahora mismo?",
+    "currentLevelLegend": "Nivel actual",
+    "level1": {
+      "name": "Principiante",
+      "desc": "No se nada, o se muy poco del idioma."
+    },
+    "level2": {
+      "name": "Intermedio",
+      "desc": "Tengo problemas para entender y conversar en el idioma, pero se un poco de gramatica y vocabulario."
+    },
+    "level3": {
+      "name": "Conversacional",
+      "desc": "Puedo hablar y entender el idioma, pero necesito mejorar mas."
+    }
+  },
+  "schedule": {
+    "monday": "Lunes",
+    "mondayShort": "Lun",
+    "tuesday": "Martes",
+    "tuesdayShort": "Mar",
+    "wednesday": "Miercoles",
+    "wednesdayShort": "Mie",
+    "thursday": "Jueves",
+    "thursdayShort": "Jue",
+    "friday": "Viernes",
+    "fridayShort": "Vie",
+    "saturday": "Sabado",
+    "saturdayShort": "Sab",
+    "sunday": "Domingo",
+    "sundayShort": "Dom",
+    "weeklyAvailabilityLabel": "Cual es tu disponibilidad durante la semana?",
+    "weeklyavailabilityDesc": " Por favor, selecciona todas las horas en las que estas disponible, para tener un tiempo ideal para las clases semanales.",
+    "selectAtLeastDays_one": "Por favor, selecciona <1>1</1> día.",
+    "selectAtLeastDays_other": "Por favor, selecciona {{count}} días.",
+    "availabilityDetails": " Agrega mas detalles sobre tu disponibilidad, como a que horas pueden ser las lecciones y otras preferencias. Por favor, intenta ser lo mas detallado posible, para que podamos programar las clases lo antes posible."
+  },
+  "error": {
+    "nameRequired": "El nombre completo es necesario.",
+    "emailValid": "El email es invalido.",
+    "emailRequired": "Un email es requerido.",
+    "planRequired": "Por favor, elige un plan de lecciones.",
+    "levelRequired": "Por favor, elige tu nivel de Ingles.",
+    "availabilityRequired": "Por favor, elige al menos 1 dia para cada clase.",
+    "scheduleDetailsRequired": " Por favor, ingresa detalles extra de tu disponibilidad."
+  },
+  "submitted": {
+    "h1": "Gracias por inscribirte!",
+    "p": "Nos contactaremos contigo pronto para los pagos y las clases, y tambien para que conozcas a tu nuevo profesor!"
+  }
+}

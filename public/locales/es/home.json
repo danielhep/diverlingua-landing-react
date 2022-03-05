@@ -1,11 +1,11 @@
 {
-  "anaBio": "Ultricies massa malesuada viverra cras lobortis. \nTempor orci hac ligula dapibus mauris sit ut eu. \nEget turpis urna mecenas cras. \ndictamen de Nisl.",
-  "photo-of-person-name": "Foto de {{personName}}",
-  "header": "Aprende <1>Inglés</1><br /><3>desde cualquier lugar.</3>",
+  "section1": "<0>\nClases personalizadas\n</0>\n<1>\nCon profesores expertos en Inglés<br />que se adaptan a tus necesidades.\n</1>",
+  "section2": "<0>\nObten confianza y fluidez en el Idioma\n</0>\n<1>\nTe daremos confianza<br /> para que hables inglés<br /> en nuestras clases conversacionales.\n</1>",
+  "section3": "<0>\nAhorra tiempo\n</0>\n<1>\nAprender español en linea con<br /> un metodo interactivo y conversacional <br />es la manera mas rapida de llegar<br /> a la fluidez en inglés.\n</1>",
+  "section4": "<0>\nAhorra dinero.\n</0>\n<1>\nEmpieza ahora con un 50% de descuento<br /> por la primera semana!\n</1>",
+  "miguelBio": "Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.",
+  "anaBio": "Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.",
   "meet-our-teachers": "Conoce a nuestros profesores",
-  "miguelBio": "Ultricies massa malesuada viverra cras lobortis. \nTempor orci hac ligula dapibus mauris sit ut eu. \nEget turpis urna mecenas cras. \ndictamen de Nisl.",
-  "page-title": "Aprende Español Rápido",
-  "section1": "<0>\n\naprenderás español\n\n</0>\n\n<1>\n\ncon profesores nativos que<br />se adaptan a tus necesidades.\n\n</1>",
-  "section2": "<0>\n\nTe ayudamos a perder el<br />miedo a hablar español.\n\n</0>\n\n<1>\n\nReforzamos tu confianza<br /> al hablar español<br /> en nuestras clases de conversación.\n\n</1>",
-  "section3": "<0>\n\nahorrarás tiempo\n\n</0>\n\n<1>\n\nAprender español en línea con un método <br /> interactivo y conversacional es la forma más rápida de pasar <br /> de cero a conversacional.\n\n</1>"
+  "photo-of-person-name": "Foto de {{personName}}",
+  "header": "Aprende <1>Ingles</1><br /><3>en cualquier lugar.</3>"
 }
