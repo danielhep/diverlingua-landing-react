@@ -76,5 +76,11 @@
   "submitted": {
     "h1": "Thank you for your submission!",
     "p": "We will reach out to you soon to set up payment and classes,<br /> as well as introduce you to your techer."
-  }
+  },
+  "steps": {
+    "name1": "Plan",
+    "name2": "Personal Details",
+    "name3": "Availability"
+  },
+  "registration-submitted": "Registration submitted!"
 }

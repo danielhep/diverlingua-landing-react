@@ -1,12 +1,15 @@
 import { CheckIcon } from '@heroicons/react/solid'
-
-const steps = [
-  { id: '01', name: 'Plan', href: '#', status: 'complete' },
-  { id: '02', name: 'Personal Details', href: '#', status: 'current' },
-  { id: '03', name: 'Availability', href: '#', status: 'upcoming' }
-]
+import { useTranslation } from 'next-i18next'
 
 export default function Steps ({ currentStep, setCurrentStep, completed }) {
+  const { t } = useTranslation(['enroll', 'common'])
+
+  const steps = [
+    { id: '01', name: t('steps.name1'), href: '#', status: 'complete' },
+    { id: '02', name: t('steps.name2'), href: '#', status: 'current' },
+    { id: '03', name: t('steps.name3'), href: '#', status: 'upcoming' }
+  ]
+
   return (
     <nav aria-label='Progress'>
       <ol role='list' className='border border-gray-300 rounded-md divide-y divide-gray-300 md:flex md:divide-y-0 bg-black/50'>
@@ -74,7 +77,7 @@ export default function Steps ({ currentStep, setCurrentStep, completed }) {
                 <span className='flex-shrink-0 w-10 h-10 flex items-center justify-center bg-rose-600 rounded-full group-hover:bg-rose-500'>
                   <CheckIcon className='w-6 h-6 text-white' aria-hidden='true' />
                 </span>
-                <span className='ml-4 text-sm font-medium text-gray-100'>Registration submitted!</span>
+                <span className='ml-4 text-sm font-medium text-gray-100'>t('registration-submitted')</span>
               </span>
             </div>
             )}

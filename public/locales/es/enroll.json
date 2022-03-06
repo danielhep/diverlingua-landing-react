@@ -59,7 +59,7 @@
     "sunday": "Domingo",
     "sundayShort": "Dom",
     "weeklyAvailabilityLabel": "Cual es tu disponibilidad durante la semana?",
-    "weeklyavailabilityDesc": " Por favor, selecciona todas las horas en las que estas disponible, para tener un tiempo ideal para las clases semanales.",
+    "weeklyavailabilityDesc": "Por favor, selecciona todas las horas en las que estas disponible, para tener un tiempo ideal para las clases semanales.",
     "selectAtLeastDays_one": "Por favor, selecciona <1>1</1> día.",
     "selectAtLeastDays_other": "Por favor, selecciona {{count}} días.",
     "availabilityDetails": " Agrega mas detalles sobre tu disponibilidad, como a que horas pueden ser las lecciones y otras preferencias. Por favor, intenta ser lo mas detallado posible, para que podamos programar las clases lo antes posible."
@@ -71,7 +71,7 @@
     "planRequired": "Por favor, elige un plan de lecciones.",
     "levelRequired": "Por favor, elige tu nivel de Ingles.",
     "availabilityRequired": "Por favor, elige al menos 1 dia para cada clase.",
-    "scheduleDetailsRequired": " Por favor, ingresa detalles extra de tu disponibilidad."
+    "scheduleDetailsRequired": "Por favor, ingresa detalles extra de tu disponibilidad."
   },
   "submitted": {
     "h1": "Gracias por inscribirte!",
